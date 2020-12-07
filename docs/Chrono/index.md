@@ -1,2 +1,3 @@
 # Chrono 
-a complex but intricate compilation.
+a complex but intricate complication.
+coming soon..
