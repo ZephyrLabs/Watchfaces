@@ -2,7 +2,7 @@
 the first analog watchface to be introduced into Infinitime.
 this watchface is the apitamy of elegance
 
-![pinealog](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/pinealog.png "pinealog)
+![pinealog](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/pinealog.png "pinealog")
 
 ### for Infinitime (latest - 0.9)
 Source code: can be found [here](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/Pinealog.cpp) 
