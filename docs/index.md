@@ -3,4 +3,5 @@ just a bunch of watchfaces,
 
 here are my releases
 
-1. [Waves, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Waves)
+1. [Waves, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Waves/)
+2. [Chrono, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Chrono/)
