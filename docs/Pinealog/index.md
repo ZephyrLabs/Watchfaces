@@ -189,20 +189,24 @@ hence its subtracted by the found Y coordinate.
 ```
 
 these lines, assign the coordinates to the array.
-hour_points is the array containing the coordinates, its like, `hour_points[] = { {120, 120}, {hour_x, hour_y} };`
+hour_points is the array containing the coordinates, its like, 
+`hour_points[] = { {120, 120}, {hour_x, hour_y} };`
+
 but since we are only changing the second coordinate, we cast the value to its index by,
 `hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};`
 
-the function const_cast<int&>() is used to type cast the double value (previously obtained from the X coordinate `hour_x = 120 + floor(hour_sin*hour_len);`)
+the function const_cast<int&>() is used to type cast the double value 
+(previously obtained from the X coordinate `hour_x = 120 + floor(hour_sin*hour_len);`)
 to an integer variable. it is able to convert the type because we have the value in int form (after using the floor() function)
 and the const_cast gives the variable `const`ness or the have the ability to act like a mutable constant.
 
-#### setting the points in lv_line_set_points
+#### 5. setting the points in lv_line_set_points
 ```lv_line_set_points(hour_hand, hour_points, 2);
     lv_line_set_points(minute_hand, minute_points, 2);
     lv_line_set_points(second_hand, second_points, 2);
 ```
-these lines set the points of the line, its syntax is, `lv_line_set_points(<line pointer>, <pointer to the array with the points> , <number of points>);`
+these lines set the points of the line, its syntax is, 
+`lv_line_set_points(<line pointer>, <pointer to the array with the points> , <number of points>);`
 
 and with that it magically shows analog time with the use of lv_line widget.
 you can find more intricate documentation at [LVGL docs](https://docs.lvgl.io/v6/en/html/object-types/line.html#line-lv-line)
