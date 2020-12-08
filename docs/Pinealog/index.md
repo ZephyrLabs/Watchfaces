@@ -183,7 +183,8 @@ since the y coordinate is inverted, we have to consider going up as having a neg
 hence its subtracted by the found Y coordinate.
 
 #### 4. assigning the coordinate values to the array.
-``` hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
+``` 
+    hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
     minute_points[1] = {const_cast<int&>(minute_x),  const_cast<int&>(minute_y)};
     second_points[1] = {const_cast<int&>(second_x),  const_cast<int&>(second_y)};
 ```
@@ -199,12 +200,11 @@ the function const_cast<int&>() is used to type cast the double value previously
 `hour_x = 120 + floor(hour_sin*hour_len);`
 
 to an integer variable. it is able to convert the type because we have the value in int form (after using the floor() function)
-and the const_cast gives the variable 
-`const`
--ness or the have the ability to act like a mutable constant.
+and the const_cast gives the variable `const`-ness or the have the ability to act like a mutable constant.
 
 #### 5. setting the points in lv_line_set_points
-```lv_line_set_points(hour_hand, hour_points, 2);
+```
+    lv_line_set_points(hour_hand, hour_points, 2);
     lv_line_set_points(minute_hand, minute_points, 2);
     lv_line_set_points(second_hand, second_points, 2);
 ```
