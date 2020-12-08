@@ -78,35 +78,35 @@ if(hour <= 12){
     hour_angle = (hour - 12) * 30;
     }
       
-    minute_angle = minute * 6;
+minute_angle = minute * 6;
     
-    second_angle = second * 6;
+second_angle = second * 6;
     
-    hour_sin = sin(hour_angle * 0.017);
-    hour_cos = cos(hour_angle * 0.017);
+hour_sin = sin(hour_angle * 0.017);
+hour_cos = cos(hour_angle * 0.017);
 
-    minute_sin = sin(minute_angle * 0.017);
-    minute_cos = cos(minute_angle * 0.017);
+minute_sin = sin(minute_angle * 0.017);
+minute_cos = cos(minute_angle * 0.017);
 
-    second_sin = sin(second_angle * 0.017);
-    second_cos = cos(second_angle * 0.017);
+second_sin = sin(second_angle * 0.017);
+second_cos = cos(second_angle * 0.017);
 
-    hour_x = 120 + floor(hour_sin*hour_len);
-    hour_y = 120 - floor(hour_cos*hour_len);
+hour_x = 120 + floor(hour_sin*hour_len);
+hour_y = 120 - floor(hour_cos*hour_len);
 
-    minute_x = 120 + floor(minute_sin*minute_len);
-    minute_y = 120 - floor(minute_cos*minute_len);
+minute_x = 120 + floor(minute_sin*minute_len);
+minute_y = 120 - floor(minute_cos*minute_len);
 
-    second_x = 120 + floor(second_sin*second_len);
-    second_y = 120 - floor(second_cos*second_len);
+second_x = 120 + floor(second_sin*second_len);
+second_y = 120 - floor(second_cos*second_len);
 
-    hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
-    minute_points[1] = {const_cast<int&>(minute_x),  const_cast<int&>(minute_y)};
-    second_points[1] = {const_cast<int&>(second_x),  const_cast<int&>(second_y)};
+hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
+minute_points[1] = {const_cast<int&>(minute_x),  const_cast<int&>(minute_y)};
+second_points[1] = {const_cast<int&>(second_x),  const_cast<int&>(second_y)};
     
-    lv_line_set_points(hour_hand, hour_points, 2);
-    lv_line_set_points(minute_hand, minute_points, 2);
-    lv_line_set_points(second_hand, second_points, 2);
+lv_line_set_points(hour_hand, hour_points, 2);
+lv_line_set_points(minute_hand, minute_points, 2);
+lv_line_set_points(second_hand, second_points, 2);
 ```
 
 lets break it up to see which does what.
@@ -115,14 +115,14 @@ lets break it up to see which does what.
 ```
 if(hour <= 12){
     hour_angle = hour * 30;
-    }
-    else if(hour > 12){
+  }
+else if(hour > 12){
     hour_angle = (hour - 12) * 30;
-    }
+  }
       
-    minute_angle = minute * 6;
+minute_angle = minute * 6;
     
-    second_angle = second * 6;
+second_angle = second * 6;
 ```
 this is the part which gets the value of the angle.
 hour, minute, and second are the variables which have the value of time in their respective names.
@@ -130,14 +130,14 @@ and hour_ angle, minute_angle, and second_angle are the respective variables to 
 
 #### 2. getting the values of the trignometric constants
 ```
-    hour_sin = sin(hour_angle * 0.017);
-    hour_cos = cos(hour_angle * 0.017);
+hour_sin = sin(hour_angle * 0.017);
+hour_cos = cos(hour_angle * 0.017);
 
-    minute_sin = sin(minute_angle * 0.017);
-    minute_cos = cos(minute_angle * 0.017);
+minute_sin = sin(minute_angle * 0.017);
+minute_cos = cos(minute_angle * 0.017);
 
-    second_sin = sin(second_angle * 0.017);
-    second_cos = cos(second_angle * 0.017);
+second_sin = sin(second_angle * 0.017);
+second_cos = cos(second_angle * 0.017);
 ```
 this part get the trignometric constants, i.e the "sin θ" value
 sin(), cos() are functions which belong to the native C++ math library. it is used with `#include <math.h>`
@@ -147,14 +147,14 @@ hence to convert degrees to radians, we multiply it with pi/180 or 3.14/180 whic
 
 #### 3. getting the x and y coordinates
 ```
-    hour_x = 120 + floor(hour_sin*hour_len);
-    hour_y = 120 - floor(hour_cos*hour_len);
+hour_x = 120 + floor(hour_sin*hour_len);
+hour_y = 120 - floor(hour_cos*hour_len);
 
-    minute_x = 120 + floor(minute_sin*minute_len);
-    minute_y = 120 - floor(minute_cos*minute_len);
+minute_x = 120 + floor(minute_sin*minute_len);
+minute_y = 120 - floor(minute_cos*minute_len);
 
-    second_x = 120 + floor(second_sin*second_len);
-    second_y = 120 - floor(second_cos*second_len);
+second_x = 120 + floor(second_sin*second_len);
+second_y = 120 - floor(second_cos*second_len);
 ```
 this part of the code is responsible for getting the x and y coordinates.
 eg. hour_sin * hour_len gives us the x coordinate
@@ -184,9 +184,9 @@ hence its subtracted by the found Y coordinate.
 
 #### 4. assigning the coordinate values to the array.
 ``` 
-    hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
-    minute_points[1] = {const_cast<int&>(minute_x),  const_cast<int&>(minute_y)};
-    second_points[1] = {const_cast<int&>(second_x),  const_cast<int&>(second_y)};
+hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};
+minute_points[1] = {const_cast<int&>(minute_x),  const_cast<int&>(minute_y)};
+second_points[1] = {const_cast<int&>(second_x),  const_cast<int&>(second_y)};
 ```
 
 these lines, assign the coordinates to the array.
@@ -204,9 +204,9 @@ and the const_cast gives the variable `const`-ness or the have the ability to ac
 
 #### 5. setting the points in lv_line_set_points
 ```
-    lv_line_set_points(hour_hand, hour_points, 2);
-    lv_line_set_points(minute_hand, minute_points, 2);
-    lv_line_set_points(second_hand, second_points, 2);
+lv_line_set_points(hour_hand, hour_points, 2);
+lv_line_set_points(minute_hand, minute_points, 2);
+lv_line_set_points(second_hand, second_points, 2);
 ```
 
 these lines set the points of the line, its syntax is, 
