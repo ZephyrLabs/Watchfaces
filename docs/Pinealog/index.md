@@ -189,7 +189,7 @@ hence its subtracted by the found Y coordinate.
 ```
 
 these lines, assign the coordinates to the array.
-hour_points is the array containing the coordinates, its like, `hour_points[] = {{120, 120}, {hour_x, hour_y}};`
+hour_points is the array containing the coordinates, its like, `hour_points[] = { {120, 120}, {hour_x, hour_y} };`
 but since we are only changing the second coordinate, we cast the value to its index by,
 `hour_points[1] = {const_cast<int&>(hour_x),  const_cast<int&>(hour_y)};`
 
