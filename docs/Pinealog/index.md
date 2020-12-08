@@ -73,10 +73,10 @@ in code this is what happens within the `Clock::Refresh()` function
 ```
 if(hour <= 12){
     hour_angle = hour * 30;
-    }
-    else if(hour > 12){
+  }
+else if(hour > 12){
     hour_angle = (hour - 12) * 30;
-    }
+  }
       
 minute_angle = minute * 6;
     
