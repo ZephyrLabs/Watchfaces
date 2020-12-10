@@ -1,3 +1,5 @@
 # Chrono 
 a complex but intricate complication.
-coming soon..
+![chrono](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Chrono/chrono.png "chrono")
+
+source code release coming soon..
