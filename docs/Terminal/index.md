@@ -1,5 +1,5 @@
 # Terminal.
-I use Arch btw.
+It's no Commodore!
 
 The text based presentation of info loved by tech enthusiasts.
 
