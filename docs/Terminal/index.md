@@ -1,7 +1,7 @@
 # Terminal.
 It's no Commodore!
 
-The text based presentation of info loved by tech enthusiasts.
+The text based presentation of info loved by tech enthusiasts (and others).
 
 ![Terminal](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal.png "Terminal")
 
