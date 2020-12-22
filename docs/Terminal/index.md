@@ -7,7 +7,7 @@ Note: One DFU contains vibration for notifications.
 ![Terminal](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal.jpg "Terminal")
 
 ### for Infinitime (latest - 0.9)
-Source code: can be found [here](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal.cpp)
+Source code: can be found [here](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal.cpp)
 
 pre-compiled Infinitime: download [Vibration](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Terminal/pinetime-mcuboot-app-dfu(terminal).zip)
 
