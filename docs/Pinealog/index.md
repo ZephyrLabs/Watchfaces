@@ -1,6 +1,6 @@
 # Pinealog
 the first analog watchface to be introduced into Infinitime.
-this watchface is the apitamy of elegance
+this watchface is the epitome of elegance
 
 ![pinealog](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/pinealog.png "pinealog")
 

@@ -7,3 +7,4 @@ here are my releases
 2. [Pinealog, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Pinealog/)
 3. [Chrono, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Chrono/)
 4. [Park Skyline, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/ParkSkyline/)
+5. [Terminal, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/Terminal/)
