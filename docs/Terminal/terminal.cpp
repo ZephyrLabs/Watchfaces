@@ -10,12 +10,10 @@
 #include "components/battery/BatteryController.h"
 #include "components/ble/BleController.h"
 #include "components/ble/NotificationManager.h"
+#include "components/heartrate/HeartRateController.h"
 #include "../DisplayApp.h"
 
 using namespace Pinetime::Applications::Screens;
-extern lv_font_t jetbrains_mono_extrabold_compressed;
-extern lv_font_t jetbrains_mono_bold_20;
-extern lv_style_t* LabelBigStyle;
 
 static void event_handler(lv_obj_t * obj, lv_event_t event) {
   Clock* screen = static_cast<Clock *>(obj->user_data);
@@ -26,9 +24,11 @@ Clock::Clock(DisplayApp* app,
         Controllers::DateTime& dateTimeController,
         Controllers::Battery& batteryController,
         Controllers::Ble& bleController,
-        Controllers::NotificationManager& notificatioManager) : Screen(app), currentDateTime{{}},
+        Controllers::NotificationManager& notificatioManager,
+        Controllers::HeartRateController& heartRateController): Screen(app), currentDateTime{{}},
                                            dateTimeController{dateTimeController}, batteryController{batteryController},
-                                           bleController{bleController}, notificatioManager{notificatioManager} {
+                                           bleController{bleController}, notificatioManager{notificatioManager},
+                                           heartRateController{heartRateController} {
   displayedChar[0] = 0;
   displayedChar[1] = 0;
   displayedChar[2] = 0;
@@ -62,11 +62,11 @@ Clock::Clock(DisplayApp* app,
   label_prompt_1 = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_align(label_prompt_1, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -80);
   lv_label_set_text(label_prompt_1, "user@watch:~ $ now");
-
+  
   label_prompt_2 = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_align(label_prompt_2, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 40);
   lv_label_set_text(label_prompt_2, "user@watch:~ $");
-
+  
   label_time = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label_time, true);
   lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, -60);
@@ -84,6 +84,7 @@ Clock::Clock(DisplayApp* app,
   lv_label_set_recolor(heartbeatValue, true);
   lv_label_set_text(heartbeatValue, "[L_HR]#ee3311 0 bpm#");
   lv_obj_align(heartbeatValue, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 20);
+  
   stepValue = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(stepValue, true);
   lv_label_set_text(stepValue, "[STEP]#ee3377 0 steps#");
@@ -139,20 +140,20 @@ bool Clock::Refresh() {
 
     auto hour = time.hours().count();
     auto minute = time.minutes().count();
-    auto second = time.seconds().count();
+	auto second = time.seconds().count();
 
     char minutesChar[3];
     sprintf(minutesChar, "%02d", static_cast<int>(minute));
 
     char hoursChar[3];
     sprintf(hoursChar, "%02d", static_cast<int>(hour));
-
-    char secondsChar[3];
+	
+	char secondsChar[3];
     sprintf(secondsChar, "%02d", static_cast<int>(second));
 
-    auto batteryValue = static_cast<uint8_t>(batteryController.PercentRemaining());
+	auto batteryValue = static_cast<uint8_t>(batteryController.PercentRemaining());
 
-    char batteryGauge[10];
+	char batteryGauge[10];
     if (batteryValue > 75){
       sprintf(batteryGauge, "[++++]");  //100-75
     }
@@ -172,25 +173,27 @@ bool Clock::Refresh() {
     char battStr[28];
     sprintf(battStr, "[BATT]#387b54 %s %d%%#", batteryGauge, batteryValue);
     lv_label_set_text(batteryPercent, battStr);
+	
     //TODO: AM/PM + TIME ZONE NAME 
+	
     char timeStr[28];
     sprintf(timeStr, "[TIME]#11cc55 %c%c:%c%c:%c%c#", hoursChar[0],hoursChar[1],minutesChar[0], minutesChar[1], secondsChar[0], secondsChar[1]);
-
-    if(hoursChar[0] != displayedChar[0] || hoursChar[1] != displayedChar[1] || minutesChar[0] != displayedChar[2] || minutesChar[1] != displayedChar[3] || secondsChar[0] != displayedChar[4] || secondsChar[1] != displayedChar[5]) {
+	
+    if(hoursChar[0] != displayedChar[0] || hoursChar[1] != displayedChar[1] || minutesChar[0] != displayedChar[2] || minutesChar[1] != displayedChar[3]) {
       displayedChar[0] = hoursChar[0];
       displayedChar[1] = hoursChar[1];
       displayedChar[2] = minutesChar[0];
       displayedChar[3] = minutesChar[1];
-      displayedChar[4] = secondsChar[0];
-      displayedChar[5] = secondsChar[1];
 
       lv_label_set_text(label_time, timeStr);
     }
 
     if ((year != currentYear) || (month != currentMonth) || (dayOfWeek != currentDayOfWeek) || (day != currentDay)) {
-      char dateStr[30];
+	  
+	  char dateStr[30];
       sprintf(dateStr, "[DATE]#007fff %s %s %d#", DayOfWeekToString(dayOfWeek), MonthToString(month), day);
       lv_label_set_text(label_date, dateStr);
+
 
       currentYear = year;
       currentMonth = month;
@@ -199,6 +202,17 @@ bool Clock::Refresh() {
     }
   }
 
+  heartbeat = heartRateController.HeartRate();
+  heartbeatRunning = heartRateController.State() != Controllers::HeartRateController::States::Stopped;
+  if(heartbeat.IsUpdated() || heartbeatRunning.IsUpdated()) {
+    char heartbeatBuffer[26];
+    if(heartbeatRunning.Get())
+      sprintf(heartbeatBuffer, "[L_HR]#ee3311 %d bpm#", heartbeat.Get());
+    else
+      sprintf(heartbeatBuffer, "[L_HR]#ee3311 ---#");
+
+    lv_label_set_text(heartbeatValue, heartbeatBuffer);
+  }
 
   return running;
 }
@@ -251,5 +265,4 @@ bool Clock::OnButtonPushed() {
   running = false;
   return false;
 }
-
 
