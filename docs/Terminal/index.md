@@ -10,4 +10,4 @@ The text based presentation of info loved by tech enthusiasts (and others).
 [terminal.h](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal.h)
 
 
-pre-compiled Infinitime: download (https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Terminal/dfu-0.14.0.terminal.zip)
+#### pre-compiled Infinitime: [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Terminal/dfu-0.14.0.terminal.zip)
