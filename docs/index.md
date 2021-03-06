@@ -9,4 +9,4 @@ here are my releases
 4. [Park Skyline, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/ParkSkyline/)
 5. [Terminal, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/Terminal/)
 6. [Breeze, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Breeze/)
-
+7. [Wordclock, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Wordclock/)
