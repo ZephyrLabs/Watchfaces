@@ -11,4 +11,4 @@ a simple watchface that tells time in words
 [Wordclock.h](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Wordclock/Wordclock.h)
 
 #### pre-compiled Infinitime: 
-download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Breeze/pinetime-mcuboot-app-dfu-Wordclock.zip)
+download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Wordclock/pinetime-mcuboot-app-dfu-Wordclock.zip)
