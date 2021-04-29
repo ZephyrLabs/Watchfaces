@@ -10,3 +10,4 @@ here are my releases
 5. [Terminal, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/Terminal/)
 6. [Breeze, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Breeze/)
 7. [Wordclock, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Wordclock/)
+8. [Digistyle, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Digistyle/)
