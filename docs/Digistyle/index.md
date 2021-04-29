@@ -1,7 +1,7 @@
 # Digistyle
-old style watchfaces
+old style watchface
 
-[Digistyle](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Digistyle/Digistyle.png "Digistyle")
+![Digistyle](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Digistyle/Digistyle.png "Digistyle")
 
 ### source code and resources:
-download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Digistyle/Digistyle.zip)
+download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Digistyle/digistyle.zip)
