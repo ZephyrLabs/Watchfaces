@@ -5,6 +5,13 @@ The text based presentation of info loved by tech enthusiasts (and others).
 
 ![Terminal](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal.jpg "Terminal")
 
+Source code (1.1.0): [Terminal.cpp](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal-110.cpp)
+[Terminal.h](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal-0110.h)
+
+Pre-compiled DFU download: [Terminal-DFU](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/dfu-terminal-110.zip)
+
+## Below is old and outdated files for 0.11.0
+
 Source code (0.11.0): [Terminal.cpp](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal-0110.cpp)
 [Terminal.h](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal-0110.h)
 
