@@ -4,13 +4,13 @@ this watchface is the epitome of elegance
 
 ![pinealog](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/pinealog.png "pinealog")
 
-### for Infinitime (latest - 0.9)
+### for Infinitime (latest - 0.14)
 
 #### Source code: 
 can be found [here](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Pinealog/Pinealog.cpp) 
 
 #### pre-compiled Infinitime: 
-download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Pinealog/pinetime-mcuboot-app-dfu-analog.zip)
+download [here](https://github.com/ZephyrLabs/Watchfaces/raw/gh-pages/docs/Pinealog/pinetime-mcuboot-app-dfu-pinealog.zip)
 
 ### documentation:
 This watchface is the base example for many of my other analog watchfaces due to the technique in which it has been made possible
