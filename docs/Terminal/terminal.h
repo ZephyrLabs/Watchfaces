@@ -5,59 +5,40 @@
 #include <cstdint>
 #include <memory>
 #include "Screen.h"
+#include "ScreenList.h"
 #include "components/datetime/DateTimeController.h"
 
 namespace Pinetime {
   namespace Controllers {
+    class Settings;
     class Battery;
     class Ble;
     class NotificationManager;
     class HeartRateController;
+    class MotionController;
   }
 
   namespace Applications {
     namespace Screens {
 
-      template <class T>
-      class DirtyValue {
-        public:
-          DirtyValue() = default;                      // Use NSDMI
-          explicit DirtyValue(T const& v):value{v}{}   // Use MIL and const-lvalue-ref
-          bool IsUpdated() const { return isUpdated; }
-          T const& Get() { this->isUpdated = false; return value; }  // never expose a non-const lvalue-ref
-          DirtyValue& operator=(const T& other) {
-            if (this->value != other) {
-              this->value = other;
-              this->isUpdated = true;
-            }
-            return *this;
-          }
-        private:
-          T value{};            // NSDMI - default initialise type
-          bool isUpdated{true}; // NSDMI - use brace initilisation
-      };
+      class WatchFaceDigital : public Screen {
+      public:
+        WatchFaceDigital(DisplayApp* app,
+                         Controllers::DateTime& dateTimeController,
+                         Controllers::Battery& batteryController,
+                         Controllers::Ble& bleController,
+                         Controllers::NotificationManager& notificatioManager,
+                         Controllers::Settings& settingsController,
+                         Controllers::HeartRateController& heartRateController,
+                         Controllers::MotionController& motionController);
+        ~WatchFaceDigital() override;
 
-      class Clock : public Screen {
-        public:
-          Clock(DisplayApp* app,
-                  Controllers::DateTime& dateTimeController,
-                  Controllers::Battery& batteryController,
-                  Controllers::Ble& bleController,
-                  Controllers::NotificationManager& notificatioManager,
-                  Controllers::HeartRateController& heartRateController);
-          ~Clock() override;
+        bool Refresh() override;
 
-          bool Refresh() override;
-          bool OnButtonPushed() override;
-
-          void OnObjectEvent(lv_obj_t *pObj, lv_event_t i);
-        private:
-          static const char* MonthToString(Pinetime::Controllers::DateTime::Months month);
-          static const char* DayOfWeekToString(Pinetime::Controllers::DateTime::Days dayOfWeek);
-          static char const *DaysString[];
-          static char const *MonthsString[];
-
-          char displayedChar[5];
+        void OnObjectEvent(lv_obj_t *pObj, lv_event_t i);
+      
+      private:
+          char displayedChar[8];
 
           uint16_t currentYear = 1970;
           Pinetime::Controllers::DateTime::Months currentMonth = Pinetime::Controllers::DateTime::Months::Unknown;
@@ -67,6 +48,7 @@ namespace Pinetime {
           DirtyValue<int> batteryPercentRemaining  {};
           DirtyValue<bool> bleState {};
           DirtyValue<std::chrono::time_point<std::chrono::system_clock, std::chrono::nanoseconds>> currentDateTime{};
+          DirtyValue<bool> motionSensorOk {};
           DirtyValue<uint32_t> stepCount  {};
           DirtyValue<uint8_t> heartbeat  {};
           DirtyValue<bool> heartbeatRunning  {};
@@ -74,7 +56,7 @@ namespace Pinetime {
 
           lv_obj_t* label_time;
           lv_obj_t* label_date;
-	  lv_obj_t* label_prompt_1;
+	        lv_obj_t* label_prompt_1;
           lv_obj_t* label_prompt_2;
           lv_obj_t* backgroundLabel;
           lv_obj_t* batteryIcon;
@@ -91,10 +73,9 @@ namespace Pinetime {
           Controllers::Battery& batteryController;
           Controllers::Ble& bleController;
           Controllers::NotificationManager& notificatioManager;
+          Controllers::Settings& settingsController;
           Controllers::HeartRateController& heartRateController;
-
-          bool running = true;
-
+          Controllers::MotionController& motionController;
       };
     }
   }
