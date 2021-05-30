@@ -1,5 +1,5 @@
 ## Android 12 themed InfiniTime
-![Droid](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Droid12/Droid.jpg "Droid")
+![Droid](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Droid12/Droid.png "Droid")
 
 ### Download source files here:
 [Android 12 themed InfiniTime source code](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Droid12/Droid12.zip)
