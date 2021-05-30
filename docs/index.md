@@ -14,4 +14,4 @@ here are my releases
 9. [RGB, by Zephyrlabs](https://zephyrlabs.github.io/Watchfaces/RGB/)
 
 ### Themed InfiniTime:
-1. [RGB, by Zephyrlabs](https://zephyrlabs.github.io/Watchfaces/Droid12/)
+1. [Android 12 theme, by Zephyrlabs](https://zephyrlabs.github.io/Watchfaces/Droid12/)
