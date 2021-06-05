@@ -5,6 +5,9 @@ The text based presentation of info loved by tech enthusiasts (and others).
 
 ![Terminal](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal.jpg "Terminal")
 
+
+### Modpack (for use with InfiniTime-Builder)
+[Terminal-modpack.zip](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/Terminal-modpack.zip)
 ### for Infinitime (latest - 1.1.0)
 [terminal.cpp](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal.cpp)
 [terminal.h](https://raw.githubusercontent.com/ZephyrLabs/Watchfaces/gh-pages/docs/Terminal/terminal.h)
