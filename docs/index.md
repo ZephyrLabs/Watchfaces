@@ -12,6 +12,7 @@ here are my releases
 7. [Wordclock, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Wordclock/)
 8. [Digistyle, by ZephyrLabs](https://zephyrlabs.github.io/Watchfaces/Digistyle/)
 9. [RGB, by Zephyrlabs](https://zephyrlabs.github.io/Watchfaces/RGB/)
+10. [OmegaTime, by jlukanc1](https://zephyrlabs.github.io/Watchfaces/OmegaTime/)
 
 ### Themed InfiniTime:
 1. [Android 12 theme, by Zephyrlabs](https://zephyrlabs.github.io/Watchfaces/Droid12/)
